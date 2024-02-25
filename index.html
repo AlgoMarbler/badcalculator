@@ -31,7 +31,11 @@
 	                	result = (inputFirst / inputSecond).toFixed(3);
 	                }
 	            }
-	            document.getElementById("result").innerHTML = "RESULT: " + result;
+	            if (typeof result === 'number' && !isNaN(result)) {
+                    document.getElementById("result").innerHTML = "RESULT: " + result;
+                } else {
+                    alert("Invalid input");
+                }
             }else{
             	alert("You didn't choose an operator >:(");
             }
@@ -75,7 +79,7 @@
         <input type="number" id="number_01_id"><br>
         <input type="number" id="number_02_id"><br><br>
 
-        <button onclick="evalOperation('+')">+</button>
+        <button onhov onclick="evalOperation('+')">+</button>
         <button onclick="evalOperation('-')">-</button>
         <button onclick="evalOperation('*')">*</button>
         <button onclick="evalOperation('/')">/</button>
